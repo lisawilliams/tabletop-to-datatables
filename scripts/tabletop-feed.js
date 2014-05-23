@@ -1,9 +1,33 @@
+// I originally wrote a tutorial based on Chris Keller's Tabletop To Datatables code. 
+// Sherry Skalko of Chicago Reporter wanted to use this spreadsheet to do something similar
+// with Chicago redevelopment data. 
+
+// I changed the column references, and the reference to the spreadsheet.  
+// But the code doesn't seem to "see" Sherry's spreadsheet. 
+// I note that the format of the Google Spreadsheet URL has changed since I wrote the tutorial.  
+// Maybe that's it?  See the comments just under initializeTabletopObject.  
+
+// here's what it says in the Javascript console when I try to load it: 
+// Failed to load resource: the server responded with a status of 400 (Bad Request) 
+// https://spreadsheets.google.com/feeds/list/1-UKbUSvcFNngguhoEx3Ce9bagJwmzMT…es?alt=json-in-script&sq=&callback=Tabletop.callbacks.tt140087529338629201
+
+
 var jqueryNoConflict = jQuery;
 
 // begin main function
 jqueryNoConflict(document).ready(function(){
 
-    initializeTabletopObject('0ApLwuu1HQNO7dHJVY1dsdWZlT2lNRjZ4eXluY1BWdHc');
+    initializeTabletopObject('1-UKbUSvcFNngguhoEx3Ce9bagJwmzMTgZ6EaMdffwgY');
+    
+    
+
+    // Old key: 0ApLwuu1HQNO7dHJVY1dsdWZlT2lNRjZ4eXluY1BWdHc
+    
+	// New spreadsheet url:
+    // https://docs.google.com/spreadsheets/d/1-UKbUSvcFNngguhoEx3Ce9bagJwmzMTgZ6EaMdffwgY/pubhtml
+    //
+    // This looks like the key to me, but it doesn't have key=?  anymore.  Google Spreadsheets has changed?
+    // 1-UKbUSvcFNngguhoEx3Ce9bagJwmzMTgZ6EaMdffwgY
 
 });
 
@@ -25,10 +49,22 @@ function createTableColumns(){
     Remember, tabletop.js strips out spaces from column titles, which
     is what happens with the More Info column header */
     var tableColumns =   [
-		{'mDataProp': 'policedepartment', 'sTitle': 'Police Department', 'sClass': 'center'},
-		{'mDataProp': 'ftper1000', 'sTitle': 'Full Time Police Per 1,000 Residents', 'sClass': 'center'},
-		{'mDataProp': 'population', 'sTitle': 'Population', 'sClass': 'center'}
+    
+    // Old columns:
+		//{'mDataProp': 'policedepartment', 'sTitle': 'Police Department', 'sClass': 'center'},
+		//{'mDataProp': 'ftper1000', 'sTitle': 'Full Time Police Per 1,000 Residents', 'sClass': 'center'},
+		//{'mDataProp': 'population', 'sTitle': 'Population', 'sClass': 'center'}
+		
+		// New columns: 
+		
+		{'mDataProp':'address','sTitle':'Address','sClass':'center'},
+		{'mDataProp': 'moneyrecouped', 'sTitle': 'Profit', 'sClass': 'center'},
+		
+		
+		
+		
 	];
+	
     return tableColumns;
 }
 
